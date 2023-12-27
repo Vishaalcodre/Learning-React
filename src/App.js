@@ -1,23 +1,50 @@
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import TodoTable from './components/to_do_table';
 
 function App() {
+  const [todos, setTodos] = 
+  useState([
+    {
+      rowNumber: 1, rowDescription: "Water the plants", rowAssigned: "Vishal" 
+    },
+    {
+      rowNumber: 2, rowDescription: "Exercise", rowAssigned: "Vishal" 
+    },
+    {
+      rowNumber: 3, rowDescription: "Throw Garbage", rowAssigned: "Praveen" 
+    },
+    {
+      rowNumber: 4, rowDescription: "Charge phone", rowAssigned: "Praveen" 
+    }
+  ])
+
+  const addTodo = () => {
+    if(todos.length > 0)
+    {
+      const newTodo = 
+      {
+        rowNumber: todos.length +1,
+        rowDescription: 'New Todo',
+        rowAssigned: 'New User'
+      }
+      setTodos(todos => [...todos, newTodo])
+      console.log(todos);
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='mt-5 container'>
+      <div className='card'>
+        <div className='card-header'>
+          Todo's
+        </div>
+        <div className='card-body'>
+          <TodoTable todos = {todos}/>
+          <button className='btn btn-primary' onClick={addTodo}>Add New Task</button>
+        </div>
+      </div>
     </div>
   );
 }
