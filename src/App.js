@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import TodoTable from './components/to_do_table';
+import NewTodoForm from './components/NewTodoForm';
 
 function App() {
   const [todos, setTodos] = 
@@ -43,6 +44,7 @@ function App() {
         <div className='card-body'>
           <TodoTable todos = {todos}/>
           <button className='btn btn-primary' onClick={addTodo}>Add New Task</button>
+          <NewTodoForm/>
         </div>
       </div>
     </div>
