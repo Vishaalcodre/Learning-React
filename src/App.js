@@ -41,6 +41,13 @@ function App() {
       console.log(todos);
   }
 
+  const deleteTodo = (deleteTodoRowNumber) =>{
+    let filtered = todos.filter(function(value){
+      return value.rowNumber !== deleteTodoRowNumber;
+    });
+    setTodos(filtered);
+  }
+
   const handleAddTodo = () => {
     const description = prompt("Enter task description:");
     const assigned = prompt("Enter assigned name:");
@@ -58,7 +65,7 @@ function App() {
           Todo's
         </div>
         <div className='card-body'>
-          <TodoTable todos = {todos}/>
+          <TodoTable todos = {todos} deleteTodo = {deleteTodo} />
           <button className='btn btn-primary' onClick={handleAddTodo}>Add New Task</button>
           {/* <NewTodoForm/> */}
         </div>
