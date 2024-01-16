@@ -49,8 +49,8 @@ function App() {
   }
 
   const handleAddTodo = () => {
-    const description = prompt("Enter task description:");
-    const assigned = prompt("Enter assigned name:");
+    const description = prompt("Enter Task Description:");
+    const assigned = prompt("Enter Task Assignee Name:");
   
     if (description && assigned) {
       addTodo(description, assigned);
@@ -66,7 +66,7 @@ function App() {
         </div>
         <div className='card-body'>
           <TodoTable todos = {todos} deleteTodo = {deleteTodo} />
-          <button className='btn btn-primary' onClick={handleAddTodo}>Add New Task</button>
+          <button className='btn btn-primary' onClick={handleAddTodo}>Add Todo</button>
           {/* <NewTodoForm/> */}
         </div>
       </div>
