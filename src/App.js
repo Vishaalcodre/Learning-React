@@ -38,7 +38,6 @@ function App() {
         rowAssigned: assigned
       };
       setTodos(todos => [...todos, newTodo])
-      todos.push(newTodo);
       console.log(todos);
   }
 
@@ -60,8 +59,8 @@ function App() {
         </div>
         <div className='card-body'>
           <TodoTable todos = {todos}/>
-          <button className='btn btn-primary' onClick={addTodo}>Add New Task</button>
-          <NewTodoForm/>
+          <button className='btn btn-primary' onClick={handleAddTodo}>Add New Task</button>
+          {/* <NewTodoForm/> */}
         </div>
       </div>
     </div>
