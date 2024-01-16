@@ -20,19 +20,37 @@ function App() {
     }
   ])
 
-  const addTodo = () => {
+  const addTodo = (description, assigned) => {
+    let rowNumber = 0;
     if(todos.length > 0)
     {
+      rowNumber = todos[todos.length - 1].rowNumber + 1;
+    }
+    
+    else{
+      rowNumber = 1;
+    }
+
       const newTodo = 
       {
-        rowNumber: todos.length +1,
-        rowDescription: 'New Todo',
-        rowAssigned: 'New User'
-      }
+        rowNumber: rowNumber,
+        rowDescription: description,
+        rowAssigned: assigned
+      };
       setTodos(todos => [...todos, newTodo])
+      todos.push(newTodo);
       console.log(todos);
-    }
   }
+
+  const handleAddTodo = () => {
+    const description = prompt("Enter task description:");
+    const assigned = prompt("Enter assigned name:");
+  
+    if (description && assigned) {
+      addTodo(description, assigned);
+    }
+  };
+  
 
   return (
     <div className='mt-5 container'>
@@ -43,6 +61,7 @@ function App() {
         <div className='card-body'>
           <TodoTable todos = {todos}/>
           <button className='btn btn-primary' onClick={addTodo}>Add New Task</button>
+          <NewTodoForm/>
         </div>
       </div>
     </div>
