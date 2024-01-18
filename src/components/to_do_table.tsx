@@ -1,7 +1,10 @@
-import TodoRowItem from './to_do_row_item';
+import React from 'react';
+import {TodoRowItem} from './to_do_row_item';
 
-function TodoTable(props)
-{
+export const TodoTable: React.FC<{
+    todos: TodoModel[], 
+    deleteTodo: Function
+}> = (props) =>{
     return(
     <table className='table table-hover'>
         <thead>
@@ -31,5 +34,3 @@ function TodoTable(props)
 
     
 }
-
-export default TodoTable

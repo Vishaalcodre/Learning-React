@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
-import logo from './logo.svg';
 import './App.css';
-import TodoTable from './components/to_do_table';
+import {TodoTable} from './components/to_do_table';
 
-function App() {
+export const App = () => {
   const [todos, setTodos] = 
   useState([
     {
@@ -20,7 +19,7 @@ function App() {
     }
   ])
 
-  const addTodo = (description, assigned) => {
+  const addTodo = (description: string, assigned: string) => {
     let rowNumber = 0;
     if(todos.length > 0)
     {
@@ -41,7 +40,7 @@ function App() {
       console.log(todos);
   }
 
-  const deleteTodo = (deleteTodoRowNumber) =>{
+  const deleteTodo = (deleteTodoRowNumber: number) =>{
     let filtered = todos.filter(function(value){
       return value.rowNumber !== deleteTodoRowNumber;
     });
@@ -73,5 +72,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
